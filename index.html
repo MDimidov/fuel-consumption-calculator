@@ -1,115 +1,130 @@
 <!DOCTYPE html>
 <html lang="bg">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Калкулатор за гориво</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Калкулатор за гориво</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <main class="app">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">Auto Fuel Calculator</p>
-        <h1>Калкулатор за разход на гориво</h1>
-        <p class="subtitle">
-          Смятай разход, цена на пътуване и нужни литри бързо и удобно от телефона.
-        </p>
-      </div>
-    </section>
+    <main class="app">
+        <section class="hero">
+            <div>
+                <p class="eyebrow">Auto Fuel Calculator</p>
+                <h1>Калкулатор за разход на гориво</h1>
+                <p class="subtitle">
+                    Смятай разход, цена на пътуване и нужни литри бързо и удобно от телефона.
+                </p>
+            </div>
+        </section>
 
-    <nav class="tabs" aria-label="Навигация">
-      <button class="tab-btn active" data-section="consumptionSection">
-        Разход
-      </button>
-      <button class="tab-btn" data-section="tripSection">
-        Цена
-      </button>
-      <button class="tab-btn" data-section="neededSection">
-        Литри
-      </button>
-    </nav>
+        <nav class="tabs" aria-label="Навигация">
+            <button class="tab-btn active" data-section="consumptionSection">
+                Разход
+            </button>
+            <button class="tab-btn" data-section="tripSection">
+                Цена
+            </button>
+            <button class="tab-btn" data-section="neededSection">
+                Литри
+            </button>
+        </nav>
 
-    <section class="card calculator-section active-section" id="consumptionSection">
-      <h2>1. Реален разход</h2>
-      <p class="hint">Въведи изминати километри и заредени литри.</p>
+        <section class="card calculator-section active-section" id="consumptionSection">
+            <h2>1. Реален разход</h2>
+            <p class="hint">Въведи изминати километри и заредени литри.</p>
 
-      <div class="grid">
-        <label>
-          Изминати км
-          <input type="number" id="distance" placeholder="пример: 520" min="0" step="0.01" />
-        </label>
+            <div class="grid">
+                <label>
+                    Изминати км
+                    <input type="number" id="distance" placeholder="пример: 520" min="0" step="0.01" />
+                </label>
 
-        <label>
-          Заредени литри
-          <input type="number" id="liters" placeholder="пример: 42" min="0" step="0.01" />
-        </label>
-      </div>
+                <label>
+                    Заредени литри
+                    <input type="number" id="liters" placeholder="пример: 42" min="0" step="0.01" />
+                </label>
+            </div>
 
-      <button class="primary-btn" onclick="calculateConsumption()">Сметни разход</button>
+            <button class="primary-btn" onclick="calculateConsumption()">Сметни разход</button>
 
-      <div class="result" id="consumptionResult">
-        Разходът ще се покаже тук.
-      </div>
-    </section>
+            <div class="result" id="consumptionResult">
+                Разходът ще се покаже тук.
+            </div>
+        </section>
 
-    <section class="card calculator-section" id="tripSection">
-      <h2>2. Цена на пътуване</h2>
-      <p class="hint">Сметни колко ще струва даден маршрут и колко се пада на човек.</p>
+        <section class="card calculator-section" id="tripSection">
+            <h2>2. Цена на пътуване</h2>
+            <p class="hint">Сметни колко ще струва даден маршрут и колко се пада на човек.</p>
 
-      <div class="grid">
-        <label>
-          Разстояние км
-          <input type="number" id="tripDistance" placeholder="пример: 300" min="0" step="0.01" />
-        </label>
 
-        <label>
-          Разход л/100 км
-          <input type="number" id="avgConsumption" placeholder="пример: 7.5" min="0" step="0.01" />
-        </label>
 
-        <label>
-          Цена на гориво за литър
-          <input type="number" id="fuelPrice" placeholder="пример: 2.75" min="0" step="0.01" />
-        </label>
+            <div class="grid">
+                <label>
+                    Разстояние км
+                    <input type="number" id="tripDistance" placeholder="пример: 300" min="0" step="0.01" />
+                </label>
 
-        <label>
-          Брой пътници
-          <input type="number" id="passengers" placeholder="пример: 4" min="1" step="1" value="1" />
-        </label>
-      </div>
+                <label>
+                    Разход л/100 км
+                    <input type="number" id="avgConsumption" placeholder="пример: 7.5" min="0" step="0.01" />
+                </label>
 
-      <button class="primary-btn" onclick="calculateTripCost()">Сметни цена</button>
+                <label>
+                    Цена на гориво за литър
+                    <input type="number" id="fuelPrice" placeholder="пример: 1.55" min="0" step="0.01" />
+                </label>
 
-      <div class="result" id="tripResult">
-        Цената на пътуването ще се покаже тук.
-      </div>
-    </section>
+                <label>
+                    Валута
+                    <select id="currencySelect">
+                        <option value="€" selected>EUR (€)</option>
+                        <option value="лв.">BGN (лв.)</option>
+                        <option value="$">USD ($)</option>
+                        <option value="£">GBP (£)</option>
+                    </select>
+                </label>
 
-    <section class="card calculator-section" id="neededSection">
-      <h2>3. Нужни литри</h2>
-      <p class="hint">Виж колко гориво ще ти трябва за маршрута.</p>
+                <label>
+                    Брой пътници
+                    <input type="number" id="passengers" placeholder="пример: 4" min="1" step="1" value="1" />
+                </label>
+            </div>
 
-      <div class="grid">
-        <label>
-          Разстояние км
-          <input type="number" id="neededDistance" placeholder="пример: 180" min="0" step="0.01" />
-        </label>
+            <button class="primary-btn" onclick="calculateTripCost()">Сметни цена</button>
 
-        <label>
-          Разход л/100 км
-          <input type="number" id="neededConsumption" placeholder="пример: 6.8" min="0" step="0.01" />
-        </label>
-      </div>
+            <div class="result" id="tripResult">
+                Цената на пътуването ще се покаже тук.
+            </div>
+        </section>
 
-      <button class="primary-btn" onclick="calculateNeededFuel()">Сметни литри</button>
+        <section class="card calculator-section" id="neededSection">
+            <h2>3. Нужни литри</h2>
+            <p class="hint">Виж колко гориво ще ти трябва за маршрута.</p>
 
-      <div class="result" id="neededResult">
-        Нужните литри ще се покажат тук.
-      </div>
-    </section>
-  </main>
+            <div class="grid">
+                <label>
+                    Разстояние км
+                    <input type="number" id="neededDistance" placeholder="пример: 180" min="0" step="0.01" />
+                </label>
 
-  <script src="script.js"></script>
+                <label>
+                    Разход л/100 км
+                    <input type="number" id="neededConsumption" placeholder="пример: 6.8" min="0" step="0.01" />
+                </label>
+            </div>
+
+            <button class="primary-btn" onclick="calculateNeededFuel()">Сметни литри</button>
+
+            <div class="result" id="neededResult">
+                Нужните литри ще се покажат тук.
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
 </body>
+
 </html>

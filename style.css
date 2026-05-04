@@ -187,6 +187,23 @@ input:focus {
   border-color: rgba(248, 113, 113, 0.35);
 }
 
+select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 15px 14px;
+  background: rgba(15, 23, 42, 0.82);
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  cursor: pointer;
+}
+
+select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
