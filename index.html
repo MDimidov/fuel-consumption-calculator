@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Калкулатор за гориво</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Auto Fuel Calculator</p>
+        <h1>Калкулатор за разход на гориво</h1>
+        <p class="subtitle">
+          Смятай разход, цена на пътуване и нужни литри бързо и удобно от телефона.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>1. Реален разход</h2>
+      <p class="hint">Въведи изминати километри и заредени литри.</p>
+
+      <div class="grid">
+        <label>
+          Изминати км
+          <input type="number" id="distance" placeholder="пример: 520" />
+        </label>
+
+        <label>
+          Заредени литри
+          <input type="number" id="liters" placeholder="пример: 42" />
+        </label>
+      </div>
+
+      <button onclick="calculateConsumption()">Сметни разход</button>
+
+      <div class="result" id="consumptionResult">
+        Разходът ще се покаже тук.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Цена на пътуване</h2>
+      <p class="hint">Сметни колко ще струва даден маршрут.</p>
+
+      <div class="grid">
+        <label>
+          Разстояние км
+          <input type="number" id="tripDistance" placeholder="пример: 300" />
+        </label>
+
+        <label>
+          Разход л/100 км
+          <input type="number" id="avgConsumption" placeholder="пример: 7.5" />
+        </label>
+
+        <label>
+          Цена на гориво за литър
+          <input type="number" id="fuelPrice" placeholder="пример: 2.75" />
+        </label>
+      </div>
+
+      <button onclick="calculateTripCost()">Сметни цена</button>
+
+      <div class="result" id="tripResult">
+        Цената на пътуването ще се покаже тук.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. Нужни литри</h2>
+      <p class="hint">Виж колко гориво ще ти трябва за маршрута.</p>
+
+      <div class="grid">
+        <label>
+          Разстояние км
+          <input type="number" id="neededDistance" placeholder="пример: 180" />
+        </label>
+
+        <label>
+          Разход л/100 км
+          <input type="number" id="neededConsumption" placeholder="пример: 6.8" />
+        </label>
+      </div>
+
+      <button onclick="calculateNeededFuel()">Сметни литри</button>
+
+      <div class="result" id="neededResult">
+        Нужните литри ще се покажат тук.
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
